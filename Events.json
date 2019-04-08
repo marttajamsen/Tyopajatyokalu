@@ -1,0 +1,206 @@
+[
+    {
+     "name": "Työpaja 1",
+     "host": "Kasper Henriksson",
+     "description": "Grunder i svenska",
+     "category": "Seminaari",
+     "level": "Tutustu",
+     "start_time": "11:00",
+     "end_time": "12:30",
+     "tags": ["Minä", "Muutos", "Päämäärä"]
+
+    },
+    {
+     "name": "Työpaja 2",
+     "host": "Juuso Lappalainen",
+     "description": "Koodikoulu",
+     "category": "Seminaari",
+     "level": "Perehdy",
+     "start_time": "14:00",
+     "end_time": "15:30",
+     "tags": ["Ryhmä", "Päämäärä"]
+    },
+    {
+     "name": "Työpaja 3",
+     "host": "Maiju Aspegren",
+     "description": "Tule muuttamaan elämäsi!",
+     "category": "Seminaari",
+     "level": "Syvenny",
+     "start_time": "15:30",
+     "end_time": "17:00",
+     "tags": ["Minä", "Muutos", "Päämäärä"]
+    },
+    {
+     "name": "Työpaja 4",
+     "host": "Teemu Lemetti",
+     "description": "Teemukissa teemukissa",
+     "category": "Elämys",
+     "level": "Tutustu",
+     "start_time": "11:00",
+     "end_time": "12:30",
+     "tags": ["Muutos", "Toiminta"]
+    },
+    {
+     "name": "Työpaja 5",
+     "host": "Henri Heliö",
+     "description": "Keinuttelun perusteet",
+     "category": "Seminaari",
+     "level": "Tutustu",
+     "start_time": "11:00",
+     "end_time": "12:30",
+     "tags": ["Muutos", "Toiminta"]   
+   
+    },
+    {
+    "name": "Työpaja 6",
+    "host": "Jenna Kallunki",
+    "description": "Painonnoston perusteet 2",
+    "category": "Elämys",
+    "level": "Syvenny",
+    "start_time": "14:00",
+    "end_time": "17:00",
+    "tags": ["Päämäärä", "Toiminta"]   
+      
+    },
+    {
+    "name": "Työpaja 7",
+    "host": "Petrus Holm",
+    "description": "Menkää töihi",
+    "category": "Elämys",
+    "level": "Perehdy",
+    "start_time": "15:30",
+    "end_time": "17:00",
+    "tags": ["Ryhmä", "Toiminta"]   
+      
+    },
+    {
+    "name": "Työpaja 8",
+    "host": "Julia Ehrnrooth",
+    "description": "Dissain",
+    "category": "Seminaari",
+    "level": "Tutustu",
+    "start_time": "11:00",
+    "end_time": "12:30",
+    "tags": ["Ryhmä", "Toiminta"] 
+    },
+    {
+    "name": "Työpaja 9",
+    "host": "Martta Jämsén",
+    "description": "Tyämaa_johtaminen",
+    "category": "Elämys",
+    "level": "Perehdy",
+    "start_time": "14:00",
+    "end_time": "17:00",
+    "tags": ["Muutos", "Päämäärä", "Minä"] 
+    },
+    {
+    "name": "Työpaja 10",
+    "host": "Silvia Geier",
+    "description": "Markkinointi-sutturat VEKS",
+    "category": "Seminaari",
+    "level": "Syvenny",
+    "start_time": "11:00",
+    "end_time": "12:30",
+    "tags": ["Ryhmä", "Toiminta"] 
+    },
+    {
+    "name": "Työpaja 11",
+    "host": "Iiro Nurmi",
+    "description": "Opi elämään kuin lokki.",
+    "category": "Seminaari",
+    "level": "Tutustu",
+    "start_time": "14:00",
+    "end_time": "15:30",
+    "tags": ["Minä", "Toiminta"] 
+    },
+    {
+    "name": "Työpaja 12",
+    "host": "Minea Erviö",
+    "description": "Näin vuolet kuksan, josta voi juoda viinaa.",
+    "category": "Elämys",
+    "level": "Perehdy",
+    "start_time": "14:00",
+    "end_time": "17:00",
+    "tags": ["Minä", "Päämäärä", "Toiminta"] 
+    },
+    {
+    "name": "Työpaja 13",
+    "host": "Antti Niini",
+    "description": "Näin ajat linnut ulos Saunalta.",
+    "category": "Elämys",
+    "level": "Syvenny",
+    "start_time": "15:30",
+    "end_time": "17:00",
+    "tags": ["Minä"] 
+    },
+    {
+    "name": "Työpaja 14",
+    "host": "Nolifers",
+    "description": "Painonoston perusteet",
+    "category": "Seminaari",
+    "level": "Perehdy",
+    "start_time": "11:00",
+    "end_time": "12:30",
+    "tags": ["Ryhmä", "Toiminta"] 
+    },
+    {
+    "name": "Työpaja 15",
+    "host": "Juntticon",
+    "description": "Opi käyttäytymään kuin juntti.",
+    "category": "Seminaari",
+    "level": "Perehdy",
+    "start_time": "15:30",
+    "end_time": "17:00",
+    "tags": ["Ryhmä", "Toiminta"] 
+    }, 
+    {
+    "name": "Työpaja 16",
+    "host": "Aaltoes",
+    "description": "Työttömyyden perusteet",
+    "category": "Seminaari",
+    "level": "Syvenny",
+    "start_time": "11:00",
+    "end_time": "12:30",
+    "tags": ["Minä", "Muutos"] 
+    }, 
+    {
+    "name": "Työpaja 17",
+    "host": "Startup Lifters",
+    "description": "Lokkeilemalla Piilaaksoon!",
+    "category": "Seminaari",
+    "level": "Tutustu",
+    "start_time": "15:30",
+    "end_time": "17:00",
+    "tags": ["Ryhmä", "Päämäärä"] 
+    }, 
+    {
+    "name": "Työpaja 18",
+    "host": "Joni Joentakanen",
+    "description": "Näin opit pummimaan nuuskaa tilanteessa kuin tilanteessa",
+    "category": "Seminaari",
+    "level": "Perehdy",
+    "start_time": "14:00",
+    "end_time": "15:30",
+    "tags": ["Muutos"] 
+    },
+    {
+    "name": "Työpaja 19",
+    "host": "Matti Talvela",
+    "description": "rejrgkeågkrpthkrtö",
+    "category": "Seminaari",
+    "level": "Perehdy",
+    "start_time": "15:30",
+    "end_time": "17:00",
+    "tags": ["Toiminta"] 
+    },
+    {
+    "name": "Työpaja 20",
+    "host": "Patrik Holopainen",
+    "description": "Nönönönööö",
+    "category": "Seminaari",
+    "level": "Perehdy",
+    "start_time": "11:00",
+    "end_time": "12:30",
+    "tags": ["Ryhmä"] 
+    }           
+]
