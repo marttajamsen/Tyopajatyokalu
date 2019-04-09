@@ -8,16 +8,20 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedLevel: null, 
-      selectedTags: []
+      selectedLevel: null,
+      selectedTag: null,
+      selectedTags: [],
+      filtered: []
     }
   }
 
-  handleTagClicked(tag) {
+  handleTagClicked = (tag) => {
     console.log("tag", tag)
+    console.log("event tags", events[0].tags)
     console.log("tags", this.state.selectedTags)
-    
-  }  
+
+    this.setState({ selectedTag: tag })
+  }
 
   renderTags(tags) {
     return tags.map(tag => {
@@ -31,12 +35,21 @@ class App extends Component {
 
   renderEvents() {
 
+    const { selectedLevel, selectedTag } = this.state
+
+
     const filtered = events.filter(event => {
-      if (event.level === this.state.selectedLevel) {
-        return true;
-      } else {
-        return false;
+      const levelNotMatch = selectedLevel && event.level !== selectedLevel
+      const tagNotMatch = selectedTag && event.tags.indexOf(selectedTag) === -1
+
+
+      if (levelNotMatch) {
+        return false
       }
+      if (tagNotMatch) {
+        return false
+      }
+      return true
     });
 
     return filtered.map(event => {
@@ -61,14 +74,14 @@ class App extends Component {
   renderTagfilters(tags) {
     return tags.map(tag => {
       return (
-        <button onClick={() => this.handleTagClicked(tag) }>{tag}</button>
+        <button onClick={() => this.handleTagClicked(tag)}>{tag}</button>
       )
     })
   }
 
 
   render() {
-    const mapped = events.map(event => event.name);
+    // const mapped = events.map(event => event.name);
 
     const skillLevels = [];
     const tags = [];
@@ -82,13 +95,13 @@ class App extends Component {
 
     events.forEach(event => {
       if (skillLevels.indexOf(event.level) === -1) {
-        skillLevels.push(event.level);  
+        skillLevels.push(event.level);
       }
       event.tags.forEach(tag => {
         if (tags.indexOf(tag) === -1) {
           tags.push(tag);
         }
-      })  
+      })
     })
 
     return (
@@ -96,6 +109,7 @@ class App extends Component {
         <div>
           <h1 className="Title">Työpajatyökalu</h1>
           <p>Valittu taso:  {this.state.selectedLevel}</p>
+          <p>Valittu tag:  {this.state.selectedTag}</p>
           <div className="SkillLevelFilters">
             {this.renderFilters(skillLevels)}
           </div>
