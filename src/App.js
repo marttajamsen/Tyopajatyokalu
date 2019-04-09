@@ -8,9 +8,16 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedLevel: null
+      selectedLevel: null, 
+      selectedTags: []
     }
   }
+
+  handleTagClicked(tag) {
+    console.log("tag", tag)
+    console.log("tags", this.state.selectedTags)
+    
+  }  
 
   renderTags(tags) {
     return tags.map(tag => {
@@ -51,15 +58,37 @@ class App extends Component {
     })
   }
 
+  renderTagfilters(tags) {
+    return tags.map(tag => {
+      return (
+        <button onClick={() => this.handleTagClicked(tag) }>{tag}</button>
+      )
+    })
+  }
+
+
   render() {
     const mapped = events.map(event => event.name);
 
     const skillLevels = [];
+    const tags = [];
+
+    const lista = ['A', 'B', 'C'];
+
+    lista.indexOf('A') // 0
+    lista.indexOf('B') // 1
+    lista.indexOf('C') // 2
+    lista.indexOf('D') // -1
 
     events.forEach(event => {
       if (skillLevels.indexOf(event.level) === -1) {
-        skillLevels.push(event.level);
+        skillLevels.push(event.level);  
       }
+      event.tags.forEach(tag => {
+        if (tags.indexOf(tag) === -1) {
+          tags.push(tag);
+        }
+      })  
     })
 
     return (
@@ -69,6 +98,9 @@ class App extends Component {
           <p>Valittu taso:  {this.state.selectedLevel}</p>
           <div className="SkillLevelFilters">
             {this.renderFilters(skillLevels)}
+          </div>
+          <div>
+            {this.renderTagfilters(tags)}
           </div>
           {this.renderEvents()}
         </div>
