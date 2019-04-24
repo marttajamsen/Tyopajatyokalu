@@ -16,11 +16,36 @@ class App extends Component {
   }
 
   handleTagClicked = (tag) => {
-    console.log("tag", tag)
-    console.log("event tags", events[0].tags)
-    console.log("tags", this.state.selectedTags)
 
-    this.setState({ selectedTag: tag })
+    let newTags = this.state.selectedTags.slice();
+
+    if (newTags.indexOf(tag) === -1) {
+      newTags.push(tag);
+    } else {
+      newTags = newTags.filter(t => {
+        if (t === tag) {
+          return false;
+        } else {
+          return true;
+        }
+      })
+    }
+
+    this.setState({
+      selectedTags: newTags
+    });
+  }
+
+  handleLevelClicked = (level) => {
+    if (this.state.selectedLevel === level) {
+      this.setState({
+        selectedLevel: null
+      });
+    } else {
+      this.setState({
+        selectedLevel: level
+      });
+    }
   }
 
   renderTags(tags) {
@@ -33,24 +58,36 @@ class App extends Component {
     })
   }
 
-  renderEvents() {
-
-    const { selectedLevel, selectedTag } = this.state
-
+  filterEvents() {
+    const { selectedLevel, selectedTags } = this.state
 
     const filtered = events.filter(event => {
-      const levelNotMatch = selectedLevel && event.level !== selectedLevel
-      const tagNotMatch = selectedTag && event.tags.indexOf(selectedTag) === -1
 
-
-      if (levelNotMatch) {
-        return false
+      if (selectedLevel !== null) {
+        const levelNotMatch = selectedLevel && event.level !== selectedLevel
+        if (levelNotMatch) {
+          return false
+        }
       }
-      if (tagNotMatch) {
-        return false
+      if (selectedTags.length !== 0) {
+        const matchingTags = selectedTags.filter((tag) => {
+          if (event.tags.indexOf(tag) !== -1) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        if (matchingTags.length === 0) {
+          return false
+        }
       }
       return true
     });
+
+    return filtered;
+  }
+
+  renderEvents(filtered) {
 
     return filtered.map(event => {
       return (
@@ -65,33 +102,36 @@ class App extends Component {
 
   renderFilters(levels) {
     return levels.map(level => {
+      const isSelected = level === this.state.selectedLevel;
+      let className = 'Button';
+      if (isSelected) {
+        className = 'Button-selected';
+      }
+
       return (
-        <button onClick={() => this.setState({ selectedLevel: level })}>{level}</button>
+        <button className={className} onClick={() => this.handleLevelClicked(level)}>{level}</button>
       )
     })
   }
 
   renderTagfilters(tags) {
     return tags.map(tag => {
+      const isSelected = this.state.selectedTags.indexOf(tag) !== -1;
+      let className = 'Button';
+      if (isSelected) {
+        className = 'Button-selected';
+      }
       return (
-        <button onClick={() => this.handleTagClicked(tag)}>{tag}</button>
+        <button className={className} onClick={() => this.handleTagClicked(tag)}>{tag}</button>
       )
     })
   }
 
 
   render() {
-    // const mapped = events.map(event => event.name);
 
     const skillLevels = [];
     const tags = [];
-
-    const lista = ['A', 'B', 'C'];
-
-    lista.indexOf('A') // 0
-    lista.indexOf('B') // 1
-    lista.indexOf('C') // 2
-    lista.indexOf('D') // -1
 
     events.forEach(event => {
       if (skillLevels.indexOf(event.level) === -1) {
@@ -104,19 +144,22 @@ class App extends Component {
       })
     })
 
+    const filtered = this.filterEvents();
+
     return (
       <div className="App">
         <div>
           <h1 className="Title">Työpajatyökalu</h1>
-          <p>Valittu taso:  {this.state.selectedLevel}</p>
-          <p>Valittu tag:  {this.state.selectedTag}</p>
+          <h4>Valitse taso:</h4>
           <div className="SkillLevelFilters">
             {this.renderFilters(skillLevels)}
           </div>
+          <h4>Valitse kategoria:</h4>
           <div>
             {this.renderTagfilters(tags)}
           </div>
-          {this.renderEvents()}
+          <h4>Näytetään {filtered.length} tapahtumaa</h4>
+          {this.renderEvents(filtered)}
         </div>
       </div>
     );
