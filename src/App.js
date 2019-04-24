@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import events from './Events.json';
 
+import Event from './components/Event';
+
 class App extends Component {
 
   constructor(props) {
@@ -48,16 +50,6 @@ class App extends Component {
     }
   }
 
-  renderTags(tags) {
-    return tags.map(tag => {
-      return (
-        <div>
-          <p>{tag}</p>
-        </div>
-      )
-    })
-  }
-
   filterEvents() {
     const { selectedLevel, selectedTags } = this.state
 
@@ -90,13 +82,7 @@ class App extends Component {
   renderEvents(filtered) {
 
     return filtered.map(event => {
-      return (
-        <div className="Event">
-          <h1 className="Event-title">{event.name} by {event.host}</h1>
-          <p className="Event-time">Kello: {event.start_time} - {event.end_time}</p>
-          {this.renderTags(event.tags)}
-        </div>
-      )
+      return <Event event={event} />
     })
   }
 
