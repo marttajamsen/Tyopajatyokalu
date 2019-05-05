@@ -13,3 +13,15 @@
 .Button-selected {
   background: orange;
 }
+
+.EventGrid {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.EventGrid--column {
+  margin: 10px;
+  flex: 1;
+}

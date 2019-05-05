@@ -131,6 +131,15 @@ class App extends Component {
     })
 
     const filtered = this.filterEvents();
+    const first = filtered.filter(event => {
+      if (true) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    const second = filtered.slice(2, 4);
+    const third = filtered.slice(4, 6);
 
     return (
       <div className="App">
@@ -145,7 +154,20 @@ class App extends Component {
             {this.renderTagfilters(tags)}
           </div>
           <h4>Näytetään {filtered.length} tapahtumaa</h4>
-          {this.renderEvents(filtered)}
+          <div className="EventGrid">
+            <div className="EventGrid--column">
+              <h5>11:00 - 12:30</h5>
+              {this.renderEvents(first)}
+            </div>
+            <div className="EventGrid--column">
+              <h5>14:00 - 15:30</h5>
+              {this.renderEvents(second)}
+            </div>
+            <div className="EventGrid--column">
+              <h5>15:30 - 17:00</h5>
+              {this.renderEvents(third)}
+            </div>
+          </div>
         </div>
       </div>
     );
