@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import './Event.css';
 
+const colors = {
+	"Tutustu": "#FF9843", 
+	"Perehdy": "#FF7A0B",
+	"Syvenny": "#E46700"
+}
+
+
 class Event extends Component {
 
 	renderTags(tags) {
 		return tags.map(tag => {
 			return (
-				<div>
-					<p>{tag}</p>
+				<div className="Event-tag">
+					<span>{tag}</span>
 				</div>
 			)
 		})
@@ -17,9 +24,16 @@ class Event extends Component {
 		const event = this.props.event;
 		return (
 			<div className="Event">
-				<h1 className="Event-title">{event.name} by {event.host}</h1>
-				<p className="Event-time">Kello: {event.start_time} - {event.end_time}</p>
-				{this.renderTags(event.tags)}
+				<div className="Event-color" style={{backgroundColor: colors[event.level]}}></div>
+				<div className="Event-contents">
+					<h1 className="Event-title">{event.name} by {event.host}</h1>
+					<p className="Event-time">Kello: {event.start_time} - {event.end_time}</p>
+					<p className="Event-description">Kuvaus: {event.description}</p>
+					<div className="Event-tags">
+						{this.renderTags(event.tags)}
+					</div>
+				</div>
+
 			</div>
 		);
 	}

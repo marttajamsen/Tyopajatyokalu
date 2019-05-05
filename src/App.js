@@ -79,6 +79,18 @@ class App extends Component {
     return filtered;
   }
 
+  getEventsForTimes(events, start_time, end_time) {
+    console.log('filtering', start_time + '-' + end_time)
+    const eventlist = []
+    for (let event of events){
+      console.log(event)
+      if (event.start_time === start_time){
+        eventlist.push(event)  
+      } 
+    }
+    return eventlist 
+  }
+
   renderEvents(filtered) {
 
     return filtered.map(event => {
@@ -131,15 +143,9 @@ class App extends Component {
     })
 
     const filtered = this.filterEvents();
-    const first = filtered.filter(event => {
-      if (true) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    const second = filtered.slice(2, 4);
-    const third = filtered.slice(4, 6);
+    const first = this.getEventsForTimes(filtered, '11:00', '12:30')
+    const second = this.getEventsForTimes(filtered, '14:00', '15:30')
+    const third = this.getEventsForTimes(filtered, '15:30', '17:00')
 
     return (
       <div className="App">

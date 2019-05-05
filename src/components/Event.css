@@ -1,6 +1,27 @@
 .Event {
   margin-top: 10px;
+  background-color: white;
+  color: lightblue;
+  height: 320px;
+}
+.Event-title {
+  color: blue;
+}
+
+.Event-tag {
   background-color: blue;
   color: white;
+  margin-right: 10px;
+  padding: 5px;
+}
+.Event-tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.Event-color {
+  height: 20px;
+}
+.Event-contents {
   padding: 20px;
 }

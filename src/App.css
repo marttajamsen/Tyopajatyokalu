@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #f4f5f7;
+}
 .Title {
   color: orange;
 }
