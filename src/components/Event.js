@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Event.css';
 
 const colors = {
-	"Tutustu": "#FF9843", 
-	"Perehdy": "#FF7A0B",
-	"Syvenny": "#E46700"
+	"Tutustu": "#f0e105", 
+	"Perehdy": "#f0a01e",
+	"Syvenny": "#f04150"
 }
 
 
@@ -33,7 +33,6 @@ class Event extends Component {
 						{this.renderTags(event.tags)}
 					</div>
 				</div>
-
 			</div>
 		);
 	}

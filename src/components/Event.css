@@ -1,18 +1,38 @@
+@font-face {
+  font-family: PtSans;
+  src: url(PTS55F.ttf);
+}
+
+@font-face {
+  font-family: SourceSans;
+  src: url(SourceSansPro-Black.otf);
+}
+
+@font-face {
+  font-family: Tondu;
+  src: url(Tondu_Beta.ttf);
+}
+
+
+
 .Event {
   margin-top: 10px;
   background-color: white;
-  color: lightblue;
+  color: black;
   height: 320px;
+  
 }
 .Event-title {
-  color: blue;
+  color: #253764;
+  font-family: 'Tondu';
 }
 
 .Event-tag {
-  background-color: blue;
+  background-color: #28aae1;
   color: white;
   margin-right: 10px;
   padding: 5px;
+  font-family: 'Tondu';
 }
 .Event-tags {
   display: flex;
@@ -24,4 +44,5 @@
 }
 .Event-contents {
   padding: 20px;
+  font-family: 'PtSans';
 }
