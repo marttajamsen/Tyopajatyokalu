@@ -116,16 +116,16 @@ class App extends Component {
             <h4>Näytetään {filteredEvents.length} tapahtumaa</h4>
             <Container>
               <Row>
-                <Col sm={12} md={5}>
+                <Col sm={12} md={4}>
                   <EventColumn
                     title="Aamupäivä"
                     time={EventFilters.TIMES.morning}
                     events={filteredEvents}
                   />
                 </Col>
-                <Col sm={12} md={7}>
+                <Col sm={12} md={4}>
                   <EventColumn
-                    title="Iltapäivä (pitkä)"
+                    title="Iltapäivä"
                     time={EventFilters.TIMES.afternoon_long}
                     events={filteredEvents}
                   />
@@ -134,8 +134,10 @@ class App extends Component {
                     time={EventFilters.TIMES.afternoon_short}
                     events={filteredEvents}
                   />
+                </Col>
+                <Col sm={12} md={4}>
                   <EventColumn
-                    title="Iltapäivä (keynote)"
+                    title="Keynote"
                     time={EventFilters.TIMES.afternoon_keynote}
                     events={filteredEvents}
                   />
