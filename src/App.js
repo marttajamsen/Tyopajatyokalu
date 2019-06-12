@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import events from './Events.json';
+
+import _ from 'lodash';
+import { Container, Row, Col } from 'react-grid-system';
 
 import Event from './components/Event';
-
+import EventColumn from './components/EventColumn';
+import Filters from './components/Filters';
+import HeroImage from './components/HeroImage';
+import EventService from './services/eventService';
+import EventFilters from './services/eventFilters';
 
 class App extends Component {
 
@@ -11,15 +17,33 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedLevel: null,
-      selectedTag: null,
+      selectedLevels: [],
       selectedTags: [],
-      filtered: []
+      filtered: [],
+      events: [],
+      searchText: ''
     }
+
+    this.handleLevelChange = this.handleLevelChange.bind(this);
+    this.handleTagChange = this.handleTagChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
-  handleTagClicked = (tag) => {
+  componentDidMount() {
+    EventService.getEvents().then(data => {
+      this.setState({
+        events: _.sortBy(data, 'name')
+      })
+    })
+  }
 
+  handleSearchChange(e) {
+    this.setState({
+      searchText: e.target.value
+    });
+  }
+
+  handleTagChange(tag) {
     let newTags = this.state.selectedTags.slice();
 
     if (newTags.indexOf(tag) === -1) {
@@ -39,142 +63,85 @@ class App extends Component {
     });
   }
 
-  handleLevelClicked = (level) => {
-    if (this.state.selectedLevel === level) {
+  handleLevelChange(level) {
+    if (this.state.selectedLevels.indexOf(level) !== -1) {
       this.setState({
-        selectedLevel: null
+        selectedLevels: []
       });
     } else {
       this.setState({
-        selectedLevel: level
+        selectedLevels: [level]
       });
     }
   }
 
-  filterEvents() {
-    const { selectedLevel, selectedTags } = this.state
-
-    const filtered = events.filter(event => {
-
-      if (selectedLevel !== null) {
-        const levelNotMatch = selectedLevel && event.level !== selectedLevel
-        if (levelNotMatch) {
-          return false
-        }
-      }
-      if (selectedTags.length !== 0) {
-        const matchingTags = selectedTags.filter((tag) => {
-          if (event.tags.indexOf(tag) !== -1) {
-            return true;
-          } else {
-            return false;
-          }
-        });
-        if (matchingTags.length === 0) {
-          return false
-        }
-      }
-      return true
-    });
-
-    return filtered;
-  }
-
-  getEventsForTimes(events, start_time, end_time) {
-    console.log('filtering', start_time + '-' + end_time)
-    const eventlist = []
-    for (let event of events){
-      console.log(event)
-      if (event.start_time === start_time){
-        eventlist.push(event)  
-      } 
-    }
-    return eventlist 
-  }
-
   renderEvents(filtered) {
-
     return filtered.map(event => {
       return <Event event={event} />
     })
   }
 
-  renderFilters(levels) {
-    return levels.map(level => {
-      const isSelected = level === this.state.selectedLevel;
-      let className = 'Button';
-      if (isSelected) {
-        className = 'Button-selected';
-      }
-
-      return (
-        <button className={className} onClick={() => this.handleLevelClicked(level)}>{level}</button>
-      )
-    })
-  }
-
-  renderTagfilters(tags) {
-    return tags.map(tag => {
-      const isSelected = this.state.selectedTags.indexOf(tag) !== -1;
-      let className = 'Button';
-      if (isSelected) {
-        className = 'Button-selected';
-      }
-      return (
-        <button className={className} onClick={() => this.handleTagClicked(tag)}>{tag}</button>
-      )
-    })
-  }
-
-
   render() {
 
-    const skillLevels = [];
-    const tags = [];
+    const { selectedLevels, selectedTags, searchText, events } = this.state
+    const skillLevels = EventFilters.getLevels(events);
+    const tags = EventFilters.getTags(events);
 
-    events.forEach(event => {
-      if (skillLevels.indexOf(event.level) === -1) {
-        skillLevels.push(event.level);
-      }
-      event.tags.forEach(tag => {
-        if (tags.indexOf(tag) === -1) {
-          tags.push(tag);
-        }
-      })
-    })
-
-    const filtered = this.filterEvents();
-    const first = this.getEventsForTimes(filtered, '11:00', '12:30')
-    const second = this.getEventsForTimes(filtered, '14:00', '15:30')
-    const third = this.getEventsForTimes(filtered, '15:30', '17:00')
+    const filteredEvents = EventFilters.filter(events, selectedLevels, selectedTags, searchText);
 
     return (
       <div className="App">
         <div>
-          <h1 className="Title">TYÖPAJATYÖKALU</h1>
-          <img src={require('./assets/Facebook_kansikuva_porukassa.jpg')}/>
-          <h4>Valitse taso:</h4>
-          <div className="SkillLevelFilters">
-            {this.renderFilters(skillLevels)}
+          <HeroImage />
+          <div className="App--description">
+            <p className="App--description__text">
+              "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+            </p>
           </div>
-          <h4>Valitse kategoria:</h4>
-          <div>
-            {this.renderTagfilters(tags)}
-          </div>
-          <h4>Näytetään {filtered.length} tapahtumaa</h4>
-          <div className="EventGrid">
-            <div className="EventGrid--column">
-              <h5>11:00 - 12:30</h5>
-              {this.renderEvents(first)}
-            </div>
-            <div className="EventGrid--column">
-              <h5>14:00 - 15:30</h5>
-              {this.renderEvents(second)}
-            </div>
-            <div className="EventGrid--column">
-              <h5>15:30 - 17:00</h5>
-              {this.renderEvents(third)}
-            </div>
+          <div className="App--body">
+            <Filters
+              title="Valitse taso: "
+              options={skillLevels}
+              selected={this.state.selectedLevels}
+              onChange={this.handleLevelChange}
+            />
+            <Filters
+              title="Valitse kategoria: "
+              options={tags.sort()}
+              selected={this.state.selectedTags}
+              onChange={this.handleTagChange}
+            />
+            <h4>Syötä hakusana: </h4>
+            <input value={this.state.searchText} onChange={this.handleSearchChange}></input>
+            <h4>Näytetään {filteredEvents.length} tapahtumaa</h4>
+            <Container>
+              <Row>
+                <Col sm={12} md={5}>
+                  <EventColumn
+                    title="Aamupäivä"
+                    time={EventFilters.TIMES.morning}
+                    events={filteredEvents}
+                  />
+                </Col>
+                <Col sm={12} md={7}>
+                  <EventColumn
+                    title="Iltapäivä (pitkä)"
+                    time={EventFilters.TIMES.afternoon_long}
+                    events={filteredEvents}
+                  />
+                  <EventColumn
+                    title="Iltapäivä (lyhyt)"
+                    time={EventFilters.TIMES.afternoon_short}
+                    events={filteredEvents}
+                  />
+                  <EventColumn
+                    title="Iltapäivä (keynote)"
+                    time={EventFilters.TIMES.afternoon_keynote}
+                    events={filteredEvents}
+                  />
+                </Col>
+              </Row>
+            </Container>
           </div>
         </div>
       </div>

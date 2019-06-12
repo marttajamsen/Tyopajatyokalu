@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Tondu';
+  src: url('./assets/fonts/Tondu_Beta.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./assets/fonts/SourceSansPro-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./assets/fonts/SourceSansPro-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+	font-family: 'SourceSansPro';
+	font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Tondu';
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}

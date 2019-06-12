@@ -1,0 +1,21 @@
+.Tag {
+	margin-left: 10px;
+	margin-top: 10px;
+	padding: 8px 16px;
+	background: #28aae1;
+	color: white;
+	outline: none;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.Tag--text {
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	font-size: 14px;
+}
+
+.Tag-selected {
+	background: #253764;
+}
