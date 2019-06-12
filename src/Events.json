@@ -7,7 +7,7 @@
      "level": "Tutustu",
      "start_time": "11:00",
      "end_time": "12:30",
-     "tags": ["Minä", "Muutos", "Päämäärä"]
+     "tags": ["Hyvinvointi ja elämänhallinta", "Suosittelemme Vaeltajille"]
 
     },
     {
@@ -18,7 +18,7 @@
      "level": "Perehdy",
      "start_time": "14:00",
      "end_time": "15:30",
-     "tags": ["Ryhmä", "Päämäärä"]
+     "tags": ["Teknologia"]
     },
     {
      "name": "Työpaja 3",
@@ -28,7 +28,7 @@
      "level": "Syvenny",
      "start_time": "15:30",
      "end_time": "17:00",
-     "tags": ["Minä", "Muutos", "Päämäärä"]
+     "tags": ["Suhde itseen", "Partio"]
     },
     {
      "name": "Työpaja 4",
@@ -38,7 +38,7 @@
      "level": "Tutustu",
      "start_time": "11:00",
      "end_time": "12:30",
-     "tags": ["Muutos", "Toiminta"]
+     "tags": ["Muutos", "Toiminta", "Ihmisten kohtaaminen"]
     },
     {
      "name": "Työpaja 5",
@@ -48,7 +48,7 @@
      "level": "Tutustu",
      "start_time": "11:00",
      "end_time": "12:30",
-     "tags": ["Muutos", "Toiminta"]   
+     "tags": ["Muutos", "Toiminta", "Vuorovaikutus- ja yhteistyötaidot"]   
    
     },
     {
@@ -59,7 +59,7 @@
     "level": "Syvenny",
     "start_time": "14:00",
     "end_time": "17:00",
-    "tags": ["Päämäärä", "Toiminta"]   
+    "tags": ["Päämäärä", "Toiminta", "Ihmisten johtaminen"]   
       
     },
     {
@@ -70,7 +70,7 @@
     "level": "Perehdy",
     "start_time": "15:30",
     "end_time": "17:00",
-    "tags": ["Ryhmä", "Toiminta"]   
+    "tags": ["Menestyminen työelämässä", "Työelämätaidot", "Halu toimia"]   
       
     },
     {
@@ -81,7 +81,7 @@
     "level": "Tutustu",
     "start_time": "11:00",
     "end_time": "12:30",
-    "tags": ["Ryhmä", "Toiminta"] 
+    "tags": ["Ryhmä", "Toiminta", "Kehittäminen ja muutos"] 
     },
     {
     "name": "Työpaja 9",
@@ -91,7 +91,7 @@
     "level": "Perehdy",
     "start_time": "14:00",
     "end_time": "17:00",
-    "tags": ["Muutos", "Päämäärä", "Minä"] 
+    "tags": ["Muutos", "Päämäärä", "Minä", "Toiminnan työkaluja"] 
     },
     {
     "name": "Työpaja 10",
@@ -101,7 +101,7 @@
     "level": "Syvenny",
     "start_time": "11:00",
     "end_time": "12:30",
-    "tags": ["Ryhmä", "Toiminta"] 
+    "tags": ["Ryhmä", "Toiminta", "Vastuullisuus"] 
     },
     {
     "name": "Työpaja 11",
@@ -121,7 +121,7 @@
     "level": "Perehdy",
     "start_time": "14:00",
     "end_time": "17:00",
-    "tags": ["Minä", "Päämäärä", "Toiminta"] 
+    "tags": ["Minä", "Päämäärä", "Toiminta", "Suosittelemme vaeltajille"] 
     },
     {
     "name": "Työpaja 13",
@@ -161,7 +161,7 @@
     "level": "Syvenny",
     "start_time": "11:00",
     "end_time": "12:30",
-    "tags": ["Minä", "Muutos"] 
+    "tags": ["Minä", "Muutos", "Suosittelemme vaeltajille"] 
     }, 
     {
     "name": "Työpaja 17",
@@ -201,6 +201,16 @@
     "level": "Perehdy",
     "start_time": "11:00",
     "end_time": "12:30",
-    "tags": ["Ryhmä"] 
-    }           
+    "tags": ["Ryhmä", "VBL"] 
+    },   
+    {
+    "name": "Miten tekoäly voi muuttaa työarkea?",
+    "host": "Jussi Karttila",
+    "description": "Jussi Karttila, perustajaosakas, toimitusjohtaja, Aivan Innovations Oy. Tekoälystä puhutaan paljon, mutta konkretia tai kosketuspinta arkeen on usein hyvin vähäistä. Tässä työpajassa keskustellaan konkreettisista esimerkeistä, joissa tekoäly helpottaa työntekoa. Kuulet samalla tekoäly-start-up Aivan Innovations Oy:n (aivan.ai) tarinan. ",
+    "category": "Seminaari",
+    "level": "Perehdy",
+    "start_time": "11:00",
+    "end_time": "12:30",
+    "tags": ["Teknologia", "VBL", "Menestyminen työelämässä"] 
+    }        
 ]

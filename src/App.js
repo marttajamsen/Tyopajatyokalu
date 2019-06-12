@@ -4,6 +4,7 @@ import events from './Events.json';
 
 import Event from './components/Event';
 
+
 class App extends Component {
 
   constructor(props) {
@@ -150,7 +151,8 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1 className="Title">Työpajatyökalu</h1>
+          <h1 className="Title">TYÖPAJATYÖKALU</h1>
+          <img src={require('./assets/Facebook_kansikuva_porukassa.jpg')}/>
           <h4>Valitse taso:</h4>
           <div className="SkillLevelFilters">
             {this.renderFilters(skillLevels)}

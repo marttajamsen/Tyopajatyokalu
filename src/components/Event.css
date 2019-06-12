@@ -20,19 +20,32 @@
   background-color: white;
   color: black;
   height: 320px;
-  
+
 }
+
 .Event-title {
   color: #253764;
   font-family: 'Tondu';
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+
+.Event-host {
+  color: #253764;
+  font-family: 'SourceSans';
 }
 
 .Event-tag {
   background-color: #28aae1;
   color: white;
   margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 5px;
   font-family: 'Tondu';
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 .Event-tags {
   display: flex;

@@ -22,7 +22,6 @@ body {
 .landing-page-container {
   width: 100%;
   height: 100vh;
-  background-image: url(Facebook_kansikuva_porukassa.jpg);
 }
 
 
@@ -31,21 +30,28 @@ body {
   background: #253764;
   padding: 30px;
   font-family: 'Tondu'; 
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 
 .Button {
   font-family: 'Tondu';
+  text-transform: uppercase;
+  letter-spacing: .05em;
   block-size: 30px; 
+  margin-left: 10px;
+  margin-top: 10px;
   padding: 10px;
   background: #28aae1;
   color: white;
-  transform: 10px;
 
 }
 
 .Button-selected {
   font-family: 'Tondu';
+  text-transform: uppercase;
   block-size: 30px; 
+  margin-left: 10px;
   padding: 10px;
   background: #253764;
   color: white;
