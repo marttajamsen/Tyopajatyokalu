@@ -1,15 +1,15 @@
 {
-  "main.css": "/tyopajatyokalu/static/css/main.627cced3.chunk.css",
-  "main.js": "/tyopajatyokalu/static/js/main.efba4b4e.chunk.js",
-  "main.js.map": "/tyopajatyokalu/static/js/main.efba4b4e.chunk.js.map",
-  "runtime~main.js": "/tyopajatyokalu/static/js/runtime~main.25f2097c.js",
-  "runtime~main.js.map": "/tyopajatyokalu/static/js/runtime~main.25f2097c.js.map",
-  "static/js/2.dd4a786d.chunk.js": "/tyopajatyokalu/static/js/2.dd4a786d.chunk.js",
-  "static/js/2.dd4a786d.chunk.js.map": "/tyopajatyokalu/static/js/2.dd4a786d.chunk.js.map",
-  "index.html": "/tyopajatyokalu/index.html",
-  "precache-manifest.a9152f57871d454d8a4ddd95a2bd43f2.js": "/tyopajatyokalu/precache-manifest.a9152f57871d454d8a4ddd95a2bd43f2.js",
-  "service-worker.js": "/tyopajatyokalu/service-worker.js",
-  "static/css/main.627cced3.chunk.css.map": "/tyopajatyokalu/static/css/main.627cced3.chunk.css.map",
-  "static/media/fonts.css": "/tyopajatyokalu/static/media/Tondu_Beta.ef566c49.ttf",
-  "static/media/maisema_EevaHelle_IMG_9089.jpg": "/tyopajatyokalu/static/media/maisema_EevaHelle_IMG_9089.3be67a88.jpg"
+  "main.css": "/Tyopajatyokalu/static/css/main.d310c47a.chunk.css",
+  "main.js": "/Tyopajatyokalu/static/js/main.968dd896.chunk.js",
+  "main.js.map": "/Tyopajatyokalu/static/js/main.968dd896.chunk.js.map",
+  "runtime~main.js": "/Tyopajatyokalu/static/js/runtime~main.30fdabda.js",
+  "runtime~main.js.map": "/Tyopajatyokalu/static/js/runtime~main.30fdabda.js.map",
+  "static/js/2.dd4a786d.chunk.js": "/Tyopajatyokalu/static/js/2.dd4a786d.chunk.js",
+  "static/js/2.dd4a786d.chunk.js.map": "/Tyopajatyokalu/static/js/2.dd4a786d.chunk.js.map",
+  "index.html": "/Tyopajatyokalu/index.html",
+  "precache-manifest.b84644742b77c2300df91f6473a74e49.js": "/Tyopajatyokalu/precache-manifest.b84644742b77c2300df91f6473a74e49.js",
+  "service-worker.js": "/Tyopajatyokalu/service-worker.js",
+  "static/css/main.d310c47a.chunk.css.map": "/Tyopajatyokalu/static/css/main.d310c47a.chunk.css.map",
+  "static/media/fonts.css": "/Tyopajatyokalu/static/media/Tondu_Beta.ef566c49.ttf",
+  "static/media/maisema_EevaHelle_IMG_9089.jpg": "/Tyopajatyokalu/static/media/maisema_EevaHelle_IMG_9089.3be67a88.jpg"
 }

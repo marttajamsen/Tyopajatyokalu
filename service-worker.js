@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tyopajatyokalu/precache-manifest.a9152f57871d454d8a4ddd95a2bd43f2.js"
+  "/Tyopajatyokalu/precache-manifest.b84644742b77c2300df91f6473a74e49.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/tyopajatyokalu/index.html", {
+workbox.routing.registerNavigationRoute("/Tyopajatyokalu/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
