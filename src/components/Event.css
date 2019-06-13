@@ -8,8 +8,9 @@
   color: #253764;
   text-transform: uppercase;
   letter-spacing: .05em;
+  word-break: break-word;
+  hyphens: auto;
 }
-
 
 .Event-host {
   color: #253764;
