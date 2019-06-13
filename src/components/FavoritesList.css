@@ -1,0 +1,28 @@
+.FavoritesList {
+	min-height: 500px;
+	margin-top: 20px;
+}
+
+.FavoritesList--item {
+	padding: 10px;
+	background: white;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.FavoritesList--item__name {
+	font-weight: bold;
+}
+
+.FavoritesList--item__remove {
+	color: red;
+	font-weight: bold;
+	user-select: none;
+	cursor: pointer;
+}
+
+.FavoritesList--item__remove:hover {
+	text-decoration: underline;
+}

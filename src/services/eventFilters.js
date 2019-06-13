@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const EventFilters = {
 
 	TIMES: {
@@ -5,6 +7,12 @@ const EventFilters = {
 		afternoon_long: '14:15-16:45',
 		afternoon_short: '14:15-15:45',
 		afternoon_keynote: '16:00-16:45'
+	},
+
+	LEVEL_MAPPING: {
+		Tutustu: 1,
+		Perehdy: 2,
+		Syvenny: 3,
 	},
 
 	filter: (events, levels = [], tags = [], searchText = '') => {
@@ -71,7 +79,9 @@ const EventFilters = {
 			}
 		});
 
-		return levels;
+		return _.sortBy(levels, l => {
+			return EventFilters.LEVEL_MAPPING[l] || 0;
+		});
 	}
 }
 

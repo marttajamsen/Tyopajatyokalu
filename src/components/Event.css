@@ -8,8 +8,8 @@
   color: #253764;
   text-transform: uppercase;
   letter-spacing: .05em;
+  word-break: break-word;
 }
-
 
 .Event-host {
   color: #253764;
@@ -21,6 +21,18 @@
   color: #28aae1;
   text-decoration: underline;
   cursor: pointer;
+}
+.Event-favorite {
+  margin-top: 20px;
+  display: block;
+  padding: 10px;
+  color: #253764;;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Event-favorite:hover {
+  text-decoration: underline;
 }
 
 .Event-description {

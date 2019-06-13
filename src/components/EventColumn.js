@@ -27,7 +27,12 @@ class EventColumn extends Component {
 
 		return filtered.map(event => {
 			return (
-				<Event event={event} />
+				<Event
+					onToggleFavorite={this.props.onToggleFavorite}
+					isFavorite={this.props.isFavorite}
+					key={event.name + event.host}
+					event={event}
+				/>
 			);
 		})
 	}

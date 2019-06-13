@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Event.css';
 
 import Tag from './Tag';
+import Favorites from '../services/favorites';
 
 const colors = {
 	"Tutustu": "#f0e105",
@@ -20,6 +21,16 @@ class Event extends Component {
 		}
 
 		this.toggleExpanded = this.toggleExpanded.bind(this);
+		this.handleFavorite = this.handleFavorite.bind(this);
+	}
+
+	handleFavorite() {
+		const { event, onToggleFavorite } = this.props;
+		onToggleFavorite(event);
+	}
+
+	isFavorite() {
+
 	}
 
 	toggleExpanded(e) {
@@ -33,6 +44,7 @@ class Event extends Component {
 		return tags.map(tag => {
 			return (
 				<Tag
+					key={tag}
 					text={tag}
 				/>
 			);
@@ -67,6 +79,7 @@ class Event extends Component {
 					<div className="Event-tags">
 						{this.renderTags(event.tags)}
 					</div>
+					<span onClick={this.handleFavorite} className="Event-favorite">{isFavorite ? 'Poista suosikeista' : 'Lisää suosikkeihin'}</span>
 				</div>
 			</div>
 		);
