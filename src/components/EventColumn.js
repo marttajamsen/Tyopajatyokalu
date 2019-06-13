@@ -17,6 +17,14 @@ class EventColumn extends Component {
 		const { events, times } = this.props;
 		const filtered = EventFilters.getEventsForTimes(events, times);
 
+		if (filtered.length === 0) {
+			return (
+				<div className="EventColumn--empty">
+					<p className="EventColumn--empty__text">0 hakukriteerejä vastaavaa työpajaa</p>
+				</div>
+			);
+		}
+
 		return filtered.map(event => {
 			return (
 				<Event event={event} />
@@ -27,7 +35,7 @@ class EventColumn extends Component {
 	render() {
 		return (
 			<div className="EventColumn">
-				<h2 className="EventColumn--title">{this.props.title}</h2>
+				<h2 className="EventColumn--title">{this.props.title} <br /><span>{this.props.times.join(' & ')}</span></h2>
 				<div className="EventColumn--events">
 					{this.renderEvents()}
 				</div>
