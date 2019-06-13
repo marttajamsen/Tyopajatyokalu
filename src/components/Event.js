@@ -42,10 +42,20 @@ class Event extends Component {
 	render() {
 		const event = this.props.event;
 		const description = this.state.expanded ? event.description : event.description.slice(0, 150) + '...';
+
+		let flag;
+		switch(event.language) {
+			case 'Suomi': flag = require('../assets/iconfinder_Finland_15861.png'); break;
+			case 'Ruotsi': flag = require('../assets/iconfinder_Sweden_15994.png'); break;
+			case 'Englanti': flag = require('../assets/iconfinder_United Kingdom(Great Britain)_16014.png'); break;
+			default: break;
+		}
+
 		return (
 			<div className="Event">
 				<div className="Event-color" style={{ backgroundColor: colors[event.level] }}></div>
 				<div className="Event-contents">
+					<img src={flag}/>
 					<h2 className="Event-title" >{event.name} </h2>
 					<p className="Event-host" >{event.host}</p>
 					<p className="Event-time">Kello: {event.time}</p>
