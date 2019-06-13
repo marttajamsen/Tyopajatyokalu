@@ -2,7 +2,7 @@
   "name": "tyopajatyokalu",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://marttajamsen.github.io/tyopajatyokalu",
+  "homepage": "http://marttajamsen.github.io/Tyopajatyokalu",
   "dependencies": {
     "axios": "^0.19.0",
     "lodash": "^4.17.11",
