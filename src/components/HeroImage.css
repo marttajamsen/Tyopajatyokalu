@@ -27,3 +27,11 @@
 	text-transform: uppercase;
 	font-size: 40px;
 }
+
+.App--photographer {
+	position: absolute;
+	top: 2px;
+	right: 20px;
+	color: white;
+	opacity: 0.5;
+}

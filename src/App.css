@@ -12,6 +12,10 @@ body {
   height: 100vh;
 }
 
+.App--photographer {
+  
+}
+
 .App--description {
   background: white;
   margin: 0 auto;
