@@ -44,6 +44,10 @@ const EventFilters = {
 		return events.filter(event => event.time === time);
 	},
 
+	getEventsForTimes: (events, times) => {
+		return events.filter(event => times.indexOf(event.time) !== -1);
+	},
+
 	getTags: (events) => {
 		const tags = [];
 

@@ -93,52 +93,61 @@ class App extends Component {
       <div className="App">
         <div>
           <HeroImage />
-          <div className="App--description">
-            <p className="App--description__text">
-              "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-            </p>
-          </div>
           <div className="App--body">
-            <Filters
-              title="Valitse taso: "
-              options={skillLevels}
-              selected={this.state.selectedLevels}
-              onChange={this.handleLevelChange}
-            />
-            <Filters
-              title="Valitse kategoria: "
-              options={tags.sort()}
-              selected={this.state.selectedTags}
-              onChange={this.handleTagChange}
-            />
-            <h4>Syötä hakusana: </h4>
-            <input value={this.state.searchText} onChange={this.handleSearchChange}></input>
-            <h4>Näytetään {filteredEvents.length} tapahtumaa</h4>
             <Container>
+              <Row>
+                <Col sm={12}>
+                  <div className="App--description">
+                    <p className="App--description__text">
+                      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+                  </p>
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={12}>
+                  <Filters
+                    title="Valitse kategoria: "
+                    options={tags.sort()}
+                    selected={this.state.selectedTags}
+                    onChange={this.handleTagChange}
+                  />
+                </Col>
+                <Col sm={12} md={6}>
+                  <Filters
+                    title="Valitse taso: "
+                    options={skillLevels}
+                    selected={this.state.selectedLevels}
+                    onChange={this.handleLevelChange}
+                  />
+                </Col>
+                <Col sm={12} md={6}>
+                  <h4>Syötä hakusana: </h4>
+                  <input value={this.state.searchText} onChange={this.handleSearchChange}></input>
+                </Col>
+                <Col sm={12}>
+                  <h4>Näytetään {filteredEvents.length} tapahtumaa</h4>
+                </Col>
+              </Row>
               <Row>
                 <Col sm={12} md={4}>
                   <EventColumn
                     title="Aamupäivä"
-                    time={EventFilters.TIMES.morning}
+                    times={[EventFilters.TIMES.morning]}
                     events={filteredEvents}
                   />
                 </Col>
                 <Col sm={12} md={4}>
                   <EventColumn
                     title="Iltapäivä"
-                    time={EventFilters.TIMES.afternoon_long}
-                    events={filteredEvents}
-                  />
-                  <EventColumn
-                    title="Iltapäivä (lyhyt)"
-                    time={EventFilters.TIMES.afternoon_short}
+                    times={[EventFilters.TIMES.afternoon_short, EventFilters.TIMES.afternoon_long]}
                     events={filteredEvents}
                   />
                 </Col>
                 <Col sm={12} md={4}>
                   <EventColumn
                     title="Keynote"
-                    time={EventFilters.TIMES.afternoon_keynote}
+                    times={[EventFilters.TIMES.afternoon_keynote]}
                     events={filteredEvents}
                   />
                 </Col>

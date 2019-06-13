@@ -14,8 +14,8 @@ class EventColumn extends Component {
 	}
 
 	renderEvents() {
-		const { events, time } = this.props;
-		const filtered = events.slice(0, 5);
+		const { events, times } = this.props;
+		const filtered = EventFilters.getEventsForTimes(events, times);
 
 		return filtered.map(event => {
 			return (

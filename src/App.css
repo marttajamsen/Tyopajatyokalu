@@ -14,9 +14,7 @@ body {
 
 .App--description {
   background: white;
-  margin: 0 auto;
-  width: 95%;
-  max-width: 800px;
+  width: 100%;
   padding: 20px;
   margin-top: -100px;
   z-index: 50;
