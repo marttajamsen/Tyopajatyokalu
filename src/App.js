@@ -10,6 +10,8 @@ import Filters from './components/Filters';
 import HeroImage from './components/HeroImage';
 import EventService from './services/eventService';
 import EventFilters from './services/eventFilters';
+import Favorites from './services/favorites';
+import FavoritesList from './components/FavoritesList';
 
 class App extends Component {
 
@@ -24,11 +26,15 @@ class App extends Component {
       searchText: '',
       loading: true,
       error: false,
+      favorites: [],
+      showList: true,
     }
 
     this.handleLevelsChange = this.handleSelectChange('selectedLevels').bind(this);
     this.handleTagsChange = this.handleSelectChange('selectedTags').bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleToggleFavorite = this.handleToggleFavorite.bind(this);
+    this.isFavorite = this.isFavorite.bind(this);
   }
 
   componentDidMount() {
@@ -42,8 +48,25 @@ class App extends Component {
         error: true,
         loading: false,
       });
+    });
+
+    this.setState({
+      favorites: Favorites.getFavorites()
+    });
+  }
+
+  handleToggleFavorite(event) {
+    const newFavorites = Favorites.toggleFavorite(event);
+    this.setState({
+      favorites: newFavorites
     })
   }
+
+  isFavorite(event) {
+    const { favorites } = this.state;
+    return favorites.indexOf(Favorites.getKey(event)) !== -1;
+  }
+
 
   handleSearchChange(e) {
     this.setState({
@@ -73,13 +96,100 @@ class App extends Component {
     })
   }
 
-  render() {
-
-    const { selectedLevels, selectedTags, searchText, events } = this.state
+  renderEventList() {
+    const { selectedLevels, selectedTags, searchText, events, favorites } = this.state
     const skillLevels = EventFilters.getLevels(events);
     const tags = EventFilters.getTags(events);
     const filteredEvents = EventFilters.filter(events, selectedLevels, selectedTags, searchText);
 
+    return (
+      <React.Fragment>
+        <Row>
+          <Col sm={12}>
+            <Filters
+              title="Valitse kategoriat: "
+              options={tags.sort()}
+              selected={this.state.selectedTags}
+              onChange={this.handleTagsChange}
+            />
+          </Col>
+          <Col sm={12} md={6}>
+            <Filters
+              title="Valitse tasot: "
+              options={skillLevels}
+              selected={this.state.selectedLevels}
+              onChange={this.handleLevelsChange}
+            />
+          </Col>
+          <Col sm={12} md={6}>
+            <h4>Vapaa haku: </h4>
+            <input
+              className="App--searchbox"
+              value={this.state.searchText}
+              onChange={this.handleSearchChange}
+              placeholder="Hae työpajan nimellä, vetäjällä tai kuvauksella"
+            />
+          </Col>
+          <Col sm={12}>
+            <h4>Näytetään {filteredEvents.length} tapahtumaa</h4>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={4}>
+            <EventColumn
+              onToggleFavorite={this.handleToggleFavorite}
+              isFavorite={this.isFavorite}
+              title="Aamupäivä"
+              times={[EventFilters.TIMES.morning]}
+              events={filteredEvents}
+            />
+          </Col>
+          <Col sm={12} md={4}>
+            <EventColumn
+              onToggleFavorite={this.handleToggleFavorite}
+              isFavorite={this.isFavorite}
+              title="Iltapäivä"
+              times={[EventFilters.TIMES.afternoon_short, EventFilters.TIMES.afternoon_long]}
+              events={filteredEvents}
+            />
+          </Col>
+          <Col sm={12} md={4}>
+            <EventColumn
+              onToggleFavorite={this.handleToggleFavorite}
+              isFavorite={this.isFavorite}
+              title="Keynote"
+              times={[EventFilters.TIMES.afternoon_keynote]}
+              events={filteredEvents}
+            />
+          </Col>
+        </Row>
+      </React.Fragment>
+    )
+  }
+
+  renderFavoritesList() {
+    const { events, favorites } = this.state
+    return (
+      <Row>
+        <Col sm={12}>
+          <FavoritesList favorites={favorites} events={events} onToggleFavorite={this.handleToggleFavorite} />
+        </Col>
+      </Row>
+    )
+  }
+
+  renderLoading() {
+    return (
+      <Row>
+        <Col sm={12}>
+          <p className="App--loading">Ladataan työpajoja...</p>
+        </Col>
+      </Row>
+    )
+  }
+
+  render() {
+    const { showList, favorites } = this.state;
     return (
       <div className="App">
         <HeroImage />
@@ -93,69 +203,23 @@ class App extends Component {
               </div>
             </Col>
           </Row>
+          <Row>
+            <Col sm={12}>
+              <div className="App--toggle-view">
+                <div onClick={() => this.setState({ showList: true })} className={`App--toggle-view__option ${showList ? 'active' : ''}`}>
+                  <span className="App--toggle-view__option-text">Selaa työpajoja</span>
+                </div>
+                <div onClick={() => this.setState({ showList: false })} className={`App--toggle-view__option ${showList ? '' : 'active'}`}>
+                  <span className="App--toggle-view__option-text">Omat suosikit ({favorites.length})</span>
+                </div>
+              </div>
+            </Col>
+          </Row>
           {this.state.loading ?
             (
-              <Row>
-                <Col>
-                  <p className="App--loading">Ladataan työpajoja...</p>
-                </Col>
-              </Row>
+              this.renderLoading()
             ) : (
-              <React.Fragment>
-                <Row>
-                  <Col sm={12}>
-                    <Filters
-                      title="Valitse kategoriat: "
-                      options={tags.sort()}
-                      selected={this.state.selectedTags}
-                      onChange={this.handleTagsChange}
-                    />
-                  </Col>
-                  <Col sm={12} md={6}>
-                    <Filters
-                      title="Valitse tasot: "
-                      options={skillLevels}
-                      selected={this.state.selectedLevels}
-                      onChange={this.handleLevelsChange}
-                    />
-                  </Col>
-                  <Col sm={12} md={6}>
-                    <h4>Vapaa haku: </h4>
-                    <input
-                      className="App--searchbox"
-                      value={this.state.searchText}
-                      onChange={this.handleSearchChange}
-                      placeholder="Hae työpajan nimellä, vetäjällä tai kuvauksella"
-                    />
-                  </Col>
-                  <Col sm={12}>
-                    <h4>Näytetään {filteredEvents.length} tapahtumaa</h4>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col sm={12} md={4}>
-                    <EventColumn
-                      title="Aamupäivä"
-                      times={[EventFilters.TIMES.morning]}
-                      events={filteredEvents}
-                    />
-                  </Col>
-                  <Col sm={12} md={4}>
-                    <EventColumn
-                      title="Iltapäivä"
-                      times={[EventFilters.TIMES.afternoon_short, EventFilters.TIMES.afternoon_long]}
-                      events={filteredEvents}
-                    />
-                  </Col>
-                  <Col sm={12} md={4}>
-                    <EventColumn
-                      title="Keynote"
-                      times={[EventFilters.TIMES.afternoon_keynote]}
-                      events={filteredEvents}
-                    />
-                  </Col>
-                </Row>
-              </React.Fragment>
+              showList ? this.renderEventList() : this.renderFavoritesList()
             )}
         </Container>
         <div style={{ height: '100px' }} />

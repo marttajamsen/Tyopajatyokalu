@@ -16,6 +16,41 @@ body {
   
 }
 
+.App--toggle-view {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  margin-top: -10px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+  background: white;
+}
+
+.App--toggle-view__option {
+  background: #253764;
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  cursor: pointer;
+  user-select: none;
+}
+
+.App--toggle-view__option.active {
+  opacity: 1;
+}
+
+.App--toggle-view__option-text {
+  color: white;
+  text-align: center;
+}
+
 .App--description {
   background: white;
   width: 100%;
