@@ -27,7 +27,7 @@ class EventColumn extends Component {
 
 		return filtered.map(event => {
 			return (
-				<Event event={event} />
+				<Event key={event.name + event.host} event={event} />
 			);
 		})
 	}

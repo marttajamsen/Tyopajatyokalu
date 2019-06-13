@@ -78,10 +78,7 @@ class App extends Component {
     const { selectedLevels, selectedTags, searchText, events } = this.state
     const skillLevels = EventFilters.getLevels(events);
     const tags = EventFilters.getTags(events);
-
     const filteredEvents = EventFilters.filter(events, selectedLevels, selectedTags, searchText);
-
-    console.log('FILTERED', filteredEvents);
 
     return (
       <div className="App">

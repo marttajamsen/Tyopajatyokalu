@@ -33,6 +33,7 @@ class Event extends Component {
 		return tags.map(tag => {
 			return (
 				<Tag
+					key={tag}
 					text={tag}
 				/>
 			);

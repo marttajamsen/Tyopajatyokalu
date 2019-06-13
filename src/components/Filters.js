@@ -17,6 +17,7 @@ class Filters extends Component {
 		return this.props.options.map(option => {
 			return (
 				<Tag
+					key={option}
 					text={option}
 					selected={this.props.selected.indexOf(option) !== -1}
 					onClick={() => this.props.onChange(option)}
