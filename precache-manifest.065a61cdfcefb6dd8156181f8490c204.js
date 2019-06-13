@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/Tyopajatyokalu/static/js/runtime~main.30fdabda.js"
   },
   {
-    "revision": "94868077745960bb679c",
-    "url": "/Tyopajatyokalu/static/js/main.968dd896.chunk.js"
+    "revision": "fc5ddbd9633e4bc584a6",
+    "url": "/Tyopajatyokalu/static/js/main.4bc229f1.chunk.js"
   },
   {
-    "revision": "7cc659012e151b0373b0",
-    "url": "/Tyopajatyokalu/static/js/2.dd4a786d.chunk.js"
+    "revision": "1076def7aa4b255750c3",
+    "url": "/Tyopajatyokalu/static/js/2.aceadcd5.chunk.js"
   },
   {
-    "revision": "94868077745960bb679c",
+    "revision": "fc5ddbd9633e4bc584a6",
     "url": "/Tyopajatyokalu/static/css/main.d310c47a.chunk.css"
   },
   {
-    "revision": "761542ab026b18b58f34e6e299be9e92",
+    "revision": "6e9df015b26cfd83a51bd437c7ba96fe",
     "url": "/Tyopajatyokalu/index.html"
   }
 ];
