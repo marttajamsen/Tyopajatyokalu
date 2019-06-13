@@ -29,10 +29,6 @@ class Event extends Component {
 		onToggleFavorite(event);
 	}
 
-	isFavorite() {
-
-	}
-
 	toggleExpanded(e) {
 		e.preventDefault();
 		this.setState({
@@ -54,6 +50,7 @@ class Event extends Component {
 	render() {
 		const event = this.props.event;
 		const description = this.state.expanded ? event.description : event.description.slice(0, 150) + '...';
+		const isFavorite = this.props.isFavorite(event);
 
 		let flag;
 		switch(event.language) {
