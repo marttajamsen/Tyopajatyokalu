@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "5566dd7aac8093d495b0",
-    "url": "/Tyopajatyokalu/static/css/main.56ef3a2e.chunk.css"
+    "revision": "418629ab1d8c5590dc35",
+    "url": "/Tyopajatyokalu/static/css/main.fbe52ec2.chunk.css"
   },
   {
-    "revision": "5566dd7aac8093d495b0",
-    "url": "/Tyopajatyokalu/static/js/main.7d30d93a.chunk.js"
+    "revision": "418629ab1d8c5590dc35",
+    "url": "/Tyopajatyokalu/static/js/main.02b46358.chunk.js"
   },
   {
     "revision": "3fb342e0b989995709f7",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/Tyopajatyokalu/static/media/SourceSansPro-Bold.7e0ee8c4.ttf"
   },
   {
-    "revision": "fc4ed5887c53043dd816f78530299084",
+    "revision": "bf710d2fa4161c1908643e3739448b2e",
     "url": "/Tyopajatyokalu/index.html"
   }
 ];
