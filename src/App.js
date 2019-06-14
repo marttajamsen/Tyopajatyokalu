@@ -107,7 +107,7 @@ class App extends Component {
         <Row>
           <Col sm={12}>
             <Filters
-              title="Valitse kategoriat: "
+              title="Valitse kategoria(t): "
               options={tags.sort()}
               selected={this.state.selectedTags}
               onChange={this.handleTagsChange}
@@ -115,7 +115,7 @@ class App extends Component {
           </Col>
           <Col sm={12} md={6}>
             <Filters
-              title="Valitse tasot: "
+              title="Valitse taitotaso(t): "
               options={skillLevels}
               selected={this.state.selectedLevels}
               onChange={this.handleLevelsChange}
@@ -198,12 +198,21 @@ class App extends Component {
             <Col sm={12}>
               <div className="App--description">
                 <p className="App--description__text">
-                  "Tutustu: Työpajoissa harjoitellaan uusia taitoja ja tutustutaan uusiin aiheisiin ja näkökulmiin tarvitsematta aiempaa tietoa tai kokemusta. 
-
-Perehdy: Asiaa johtamisesta ja johtajuudesta laajasti eri näkökulmista. 
-
-Syvenny: Työpajoissa sukelletaan syvemmälle rajattuun aiheeseen. Valitse tämä, jos haluat vähemmästä enemmän. Joissakin työpajoissa omat kokemukset tai aiempi tietämys aiheesta ovat toivottavia keskusteluun osallistumiseksi."
+                Haluatko työpajalta matalan kynnyksen katsauksen aiheeseen vai perusteellisemman sukelluksen suoraan syvään päähän? Haluatko kokeilla jotain ihan uutta vai syventää osaamistasi jo hallitsemissasi johtamistaidoissa? Työpajatyökalussamme voit valita työpajoja tutustu, perehdy ja syvenny-tasojen mukaan.
                   </p>
+                  <p>
+                  Tutustu: Työpajoissa harjoitellaan uusia taitoja ja tutustutaan uusiin aiheisiin ja näkökulmiin tarvitsematta aiempaa tietoa tai kokemusta. 
+                  </p>
+                  <p>
+                  Perehdy: Asiaa johtamisesta ja johtajuudesta laajasti eri näkökulmista.
+                  </p>
+                  <p>
+                  Syvenny: Työpajoissa sukelletaan syvemmälle rajattuun aiheeseen. Valitse tämä, jos haluat vähemmästä enemmän. Joissakin työpajoissa omat kokemukset tai aiempi tietämys aiheesta ovat toivottavia keskusteluun osallistumiseksi.
+                  </p>
+                  <p>
+                  Eri taitotasojen työpajat on merkitty eri värein: tutustu = keltainen, perehdy = oranssi ja syvenny = punainen.
+                  </p>
+          
               </div>
             </Col>
           </Row>

@@ -29,5 +29,5 @@
 }
 
 .FavortiesList--item__time {
-	justify-items: right;
+	align-self: right;
 }

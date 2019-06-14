@@ -19,13 +19,14 @@ class FavoritesList extends Component {
 			return (
 				<div className="FavoritesList--item" key={event.name + event.host}>
 					<span className="FavoritesList--item__name">{event.name + ' - ' + event.host}</span>
-					<span className="FavortiesList--item__time">{event.time} </span>
+					<div className="FavortiesList--item__time">{event.time} 
 					<span
 						className="FavoritesList--item__remove"
 						onClick={() => this.props.onToggleFavorite(event)}
 					>
 						Poista
 					</span>
+					</div>
 				</div>
 			);
 		})
