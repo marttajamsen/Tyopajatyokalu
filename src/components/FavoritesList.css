@@ -14,6 +14,7 @@
 
 .FavoritesList--item__name {
 	font-weight: bold;
+
 }
 
 .FavoritesList--item__remove {
@@ -25,4 +26,8 @@
 
 .FavoritesList--item__remove:hover {
 	text-decoration: underline;
+}
+
+.FavortiesList--item__time {
+	justify-items: right;
 }

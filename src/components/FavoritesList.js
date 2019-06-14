@@ -18,7 +18,8 @@ class FavoritesList extends Component {
 		return favoritedEvents.map(event => {
 			return (
 				<div className="FavoritesList--item" key={event.name + event.host}>
-					<span className="FavoritesList--item__name">{event.name}</span>
+					<span className="FavoritesList--item__name">{event.name + ' - ' + event.host}</span>
+					<span className="FavortiesList--item__time">{event.time} </span>
 					<span
 						className="FavoritesList--item__remove"
 						onClick={() => this.props.onToggleFavorite(event)}
