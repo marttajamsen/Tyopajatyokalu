@@ -24,15 +24,15 @@ self.__precacheManifest = [
     "url": "/Tyopajatyokalu/static/media/Tondu_Beta.ef566c49.ttf"
   },
   {
-    "revision": "3f482321becfaa40fcb19825fa717859",
-    "url": "/Tyopajatyokalu/static/media/SourceSansPro-Regular.3f482321.ttf"
-  },
-  {
     "revision": "7e0ee8c45d872446649aacd3ce96e1f7",
     "url": "/Tyopajatyokalu/static/media/SourceSansPro-Bold.7e0ee8c4.ttf"
   },
   {
-    "revision": "bf710d2fa4161c1908643e3739448b2e",
+    "revision": "3f482321becfaa40fcb19825fa717859",
+    "url": "/Tyopajatyokalu/static/media/SourceSansPro-Regular.3f482321.ttf"
+  },
+  {
+    "revision": "eada976aff06c6723195d51a22c76663",
     "url": "/Tyopajatyokalu/index.html"
   }
 ];
