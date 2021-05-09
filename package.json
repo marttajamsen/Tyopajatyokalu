@@ -5,7 +5,7 @@
   "homepage": "http://marttajamsen.github.io/Tyopajatyokalu",
   "dependencies": {
     "axios": "^0.19.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-grid-system": "^4.4.6",
